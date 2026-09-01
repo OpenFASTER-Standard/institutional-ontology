@@ -15,7 +15,7 @@ ceiling — the ontology itself is meant to be domain-agnostic.
 
 Built on real OBO Foundry practice (ROBOT + BFO + IAO + SSSOM), **without**
 registering as an OBO Foundry member ontology — own IRI namespace
-(`https://purl.divizend.com/io/`), tooling/conventions only. Every choice
+(`https://purl.openfaster.org/io/`), tooling/conventions only. Every choice
 below is grounded in how real, currently-maintained ontologies actually do
 this, not invented for this project — see the design conversation linked from
 bulk-platform's `PROGRESS.md` for the underlying research.

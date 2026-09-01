@@ -1,4 +1,4 @@
-Prefix(:=<https://purl.divizend.com/io/>)
+Prefix(:=<https://purl.openfaster.org/io/>)
 Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
 Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
 Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
@@ -6,11 +6,11 @@ Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
 Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
 Prefix(IAO:=<http://purl.obolibrary.org/obo/IAO_>)
 Prefix(BFO:=<http://purl.obolibrary.org/obo/BFO_>)
-Prefix(IO:=<https://purl.divizend.com/io/IO_>)
+Prefix(IO:=<https://purl.openfaster.org/io/IO_>)
 Prefix(dc:=<http://purl.org/dc/elements/1.1/>)
 Prefix(dcterms:=<http://purl.org/dc/terms/>)
 
-Ontology(<https://purl.divizend.com/io/institutional-ontology.owl>
+Ontology(<https://purl.openfaster.org/io/institutional-ontology.owl>
 Import(<http://purl.obolibrary.org/obo/bfo.owl>)
 Import(<http://purl.obolibrary.org/obo/iao.owl>)
 Annotation(dc:title "Institutional Ontology"@en)
