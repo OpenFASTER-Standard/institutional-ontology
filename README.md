@@ -69,19 +69,13 @@ this, not invented for this project.
   for now, so no formal `idranges.owl` file yet (real ODK convention for
   preventing curator ID collisions) — add one if/when a second curator joins.
   Current highest ID in use: check `src/ontology/institutional-ontology-edit.ofn`.
-- **Cross-schema mapping:**
-  [SSSOM](https://mapping-commons.github.io/sssom/) (Simple Standard for
-  Sharing Ontology Mappings) — `mappings/*.sssom.tsv`, a real TSV-plus-
-  commented-YAML-header format, `predicate_id` populated with real SKOS
-  predicates (`skos:exactMatch`; confirmed this is genuinely how SSSOM
-  expects it, not a hack). One row per (concept, external field) pair — the
-  same concept can and does have multiple mapping rows (e.g. `IO:0000001`
-  maps to three separate XSD elements: MiKaDiv's `IndividualPersonType.
-  FirstName` and KaFE's `NatP_Struct.Vorname` and `Ansprechperson_Struct.
-  Vorname`, since KaFE defines the same real-world field on two different
-  structs). No `closeMatch`/`broadMatch`/`narrowMatch`/`relatedMatch` — if a
-  field doesn't cleanly match an existing concept, that's a signal to
-  research further, not a reason to hedge with a fuzzy relation.
+- **Cross-schema mapping:** moved to
+  [`realizations`](https://github.com/OpenFASTER-Standard/realizations) —
+  this repo stays concept-only, no relationship to any schema format. See
+  that repo's `legacy/` dir for the original SSSOM mapping and field
+  inventory (pending replacement by real `XSDO:`-shaped instance graphs),
+  and `docs/superpowers/specs/2026-09-01-xsd-ontology-design.md` in
+  `bulk-platform` for the full reasoning.
 - **Concept-to-concept relationships** (e.g. "Steuer-IdNr is the German
   realization of the general TIN concept"): not yet built. Plain
   `broader`/`narrower` is explicitly ruled out as contentless. In real OWL
@@ -103,7 +97,6 @@ this, not invented for this project.
   versions).
 - `src/ontology/imports/{bfo,iao}_import.owl` — pinned BFO/IAO term subsets
   (`scripts/refresh-imports.sh` regenerates these via `robot extract`).
-- `mappings/*.sssom.tsv` — SSSOM mapping sets (schema field → concept).
 - `scripts/build.sh` — merges the editors' file + imports into
   `build/institutional-ontology.owl` (gitignored scratch — the QC report and
   reasoner output live here too), runs `robot report` (fails on any ERROR)
@@ -115,16 +108,6 @@ this, not invented for this project.
   `raw.githubusercontent.com` URL to redirect to.
 - `scripts/refresh-imports.sh` — regenerates the pinned BFO/IAO import
   modules when a newly-referenced term needs pulling in.
-- `data/field-inventory.json` — the working checklist this is built from:
-  every real (non-linking-key) field across MiKaDiv's and KaFE's Excel
-  templates, deduplicated within each schema, each tagged `pending` or
-  `assigned` (+ which concept ID it resolved to). This is our own project
-  tracking, not part of the ontology's canonical format. Tracked at
-  Excel-template-column granularity (multiple columns can point at the same
-  real XSD element reused across sheets — e.g. KaFE's `NatP_Struct.Vorname`
-  backs three different template columns); `mappings/*.sssom.tsv` is
-  correctly deduplicated at the XSD-element level instead, since that's the
-  real external resource being mapped, not each of its template aliases.
 
 ## Adding a concept
 
@@ -181,13 +164,15 @@ SubClassOf(IO:00000NN <closest-fitting imported BFO/IAO class>)
 
 Next available ID: check the file for the highest `IO:` number in use, add
 one — no `idranges.owl` yet (solo curator, no real collision risk; add one
-for real if a second curator joins). Then add the corresponding row(s) to
-`mappings/mikadiv-kafe.sssom.tsv` (one row per distinct external XSD
-element, `skos:exactMatch` unless the research genuinely doesn't support an
-exact match — see the existing rows' `comment` field for the evidence-citing
-style), and mark the field(s) `assigned` in `data/field-inventory.json`.
-Run `scripts/build.sh` before committing — it only reads the source and
-writes to `build/`/the release copy, so it's always safe to run.
+for real if a second curator joins). Then, in
+[`realizations`](https://github.com/OpenFASTER-Standard/realizations), add
+the corresponding `ofr:realizesConcept` link(s) in the relevant module's
+instance graph (one per distinct external XSD element the concept
+realizes) and mark the field(s) `assigned` in that repo's
+`legacy/field-inventory.json` until it's fully superseded by the instance
+graphs themselves. Run `scripts/build.sh` before committing — it only reads
+the source and writes to `build/`/the release copy, so it's always safe to
+run.
 
 ## Building
 
@@ -201,5 +186,5 @@ export ROBOT_CMD="java -jar /path/to/robot.jar"   # or just `robot` if on PATH
 Every field-to-concept match is verified against the real XSD (`openfaster-spec`)
 and, where relevant, the official Kommunikationshandbücher — not inferred
 from field names or descriptions alone. At ~339 candidate fields, this spans
-far more than one sitting; `data/field-inventory.json` is the persistent
-checklist tracking that.
+far more than one sitting; `realizations`' `legacy/field-inventory.json` is
+the persistent checklist tracking that.
