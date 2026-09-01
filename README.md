@@ -22,15 +22,14 @@ Licensed [CC BY 4.0](LICENSE), matching the rest of OpenFASTER.
 Built on real OBO Foundry practice (ROBOT + BFO + IAO + SSSOM), **without**
 registering as an OBO Foundry member ontology — own IRI namespace
 (`https://purl.openfaster.org/io/`), tooling/conventions only.
-**`purl.openfaster.org` doesn't resolve yet** — the namespace is minted in the
-OWL files but there's no live redirector behind it. Real precedent (PREFER,
-a comparable small BFO ontology) confirms this is fine pre-setup — the
-tooling doesn't require the IRI to resolve, only to be stable. The likely
-real path when this needs to actually work is
-[w3id.org](https://w3id.org) (the actively-maintained, W3C-Community-Group-run
-persistent-identifier redirect service — confirmed real, current, and used by
-comparably small non-OBO ontologies) rather than standing up custom redirect
-infrastructure ourselves; not pursued yet. Every choice
+**`purl.openfaster.org` is live**, self-hosted (not w3id.org — kept as our
+own domain; see
+[`OpenFASTER-Standard/purl`](https://github.com/OpenFASTER-Standard/purl)
+for the redirect service itself, one dedicated repo/Vercel deployment for
+the whole org, not nested in this one). Whole-file redirects are
+version-pinned to a tagged release (never `main`); term redirects
+(`/io/IO_0000001`) go to a self-hosted
+[WIDOCO](https://github.com/dgarijo/Widoco)-generated docs page. Every choice
 below is grounded in how real, currently-maintained ontologies actually do
 this, not invented for this project.
 
