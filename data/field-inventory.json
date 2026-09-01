@@ -1,0 +1,4226 @@
+{
+  "generatedFrom": [
+    "divizend/bulk-platform/platform: crates/adapter-mikadiv-counterparty/data/template_metadata.json",
+    "divizend/bulk-platform/platform: crates/adapter-kafe-counterparty/data/template_metadata.json"
+  ],
+  "note": "Excludes pure spreadsheet-linking keys (RequestId, id, creditorId, incomeId) -- no real-world referent. status=pending until verified against the real XSD (openfaster-spec) + official Kommunikationshandbuch, then assigned a conceptId (either merged into an existing concept or the seed of a new one).",
+  "mikadiv-vib": [
+    {
+      "field": "AccountNumber",
+      "description": "Account number of the requesting custodian.",
+      "type": "Text (max 200)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ClientReference",
+      "description": "Custom reference data of the client.",
+      "type": "Text (max 200)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ClientContactpersonName",
+      "description": "Name of the responsible foreign bank contact person.",
+      "type": "Text (max 200)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ClientContactpersonPhone",
+      "description": "Telephone number of the responsible foreign bank contact person.",
+      "type": "Text (max 35)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ClientContactpersonEmail",
+      "description": "E-mail address of the responsible foreign bank contact person.",
+      "type": "Text (max 200)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "RequestedService",
+      "description": "Type of requested service.",
+      "type": "Enum",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "RequestedServiceReason",
+      "description": "Reason for the requested service, especially for correction or cancellation.",
+      "type": "Text (max 256)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "RequestedAttestationType",
+      "description": "Type of requested tax voucher.",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "IsCorrectionRequest",
+      "description": "A correction is to be performed for a report. The data record contains a reference to the preceding request.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "PreviousRequestIdForCorrection",
+      "description": "If the request is for correction of a previous request, then the RequestId of the previous request must be provided.",
+      "type": "UUID (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ReportSerialNumber",
+      "description": "Serial number (UUID) of an already submitted report, if provided previously by the German Paying agent. Used as a (additional) reference for correction.",
+      "type": "UUID (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxCertificatePrintedContactpersonName",
+      "description": "Name of the contact person for the customer, printed on the tax certificate or cover letter.",
+      "type": "Text (max 200)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxCertificatePrintedContactpersonPhone",
+      "description": "Telephone number of the contact person for the customer, printed on the tax certificate or cover letter.",
+      "type": "Text (max 35)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxCertificatePrintedContactpersonEmail",
+      "description": "E-mail address of the contact person for the customer, printed on the tax certificate or cover letter.",
+      "type": "Text (max 200)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxCertificateAlternativeRecipientName",
+      "description": "Name of the alternative mailing address recipient.",
+      "type": "Text (max 200)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxCertificateAlternativeRecipientAddress",
+      "description": "Address of the alternative mailing address recipient.",
+      "type": "Text (max 256)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxCertificateAlternativeRecipientEmail",
+      "description": "E-mail address of the alternative mailing address recipient.",
+      "type": "Text (max 256)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "EventType",
+      "description": "Event designations of the German paying agent according to ISO 20022.",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "FundId",
+      "description": "Fund identifier (status certificate number).",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "SecuritiesAccountNumber",
+      "description": "Account number of the tax voucher person at the custodian to whom the tax voucher person is directly contracted.",
+      "type": "Text (max 200)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AccountType",
+      "description": "Account type.",
+      "type": "Enum",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AccountRelationship",
+      "description": "If the tax voucher person is not the beneficial owner (creditor), then the account relationship has to be specified.",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Requests Master",
+      "occursInSheets": [
+        "1 Requests Master"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "IncomeIdentifier",
+      "description": "Unique identifier for an income. Must be unique over subsequent files. For a subsequent request to the same income, the same identifier must be provided. To be defined by the customer institute.",
+      "type": "Text (max 45)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CustodianIncomeIdentifier",
+      "description": "Bookingnumber of the payment received from the custodian. Used to reference a specific booking, if there are multiple custody chains.",
+      "type": "Text (max 45)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ISIN",
+      "description": "International Securities Identification Number (ISIN) according to ISO 6166: 2 uppercase letters followed by 10 alphanumeric characters.",
+      "type": "ISIN (ISO 6166, 12 chars: 2 letters + 10 alphanumeric)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NameOfSecurity",
+      "description": "Designation of the category of security.",
+      "type": "Text (max 256)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TypeOfSecurity",
+      "description": "Type of the security generating the capital income. Determines the category of the financial instrument held in the custodian account.",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "COAF",
+      "description": "Corporate Action Event Reference (COAF).",
+      "type": "Text (Corporate Action Event Reference, max 16)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information",
+        "9 Raw Transactions All"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "IsDepositaryReceipt",
+      "description": "Did the beneficial owner receive the capital income via a depositary receipt on German equities (for example via an American Depositary Receipt (ADR))? Then the structure DepositaryReceipts has to be provided.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CorporateActionIdOfUnderlyingSecurity",
+      "description": "Depositary receipt only: Corporate Action Identifier of the custodian for the underlying security.",
+      "type": "Text (max 45)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ISINOfUnderlyingSecurity",
+      "description": "International Securities Identification Number (ISIN) according to ISO 6166: 2 uppercase letters followed by 10 alphanumeric characters.",
+      "type": "ISIN (ISO 6166, 12 chars: 2 letters + 10 alphanumeric)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NameOfUnderlyingSecurity",
+      "description": "Name of the underlying German security.",
+      "type": "Text (max 256)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Recorddate",
+      "description": "Record date of the underlying German share.",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TotalNumberOfCertificatesIssued",
+      "description": "Total number of depositary certificates (DRs) issued on the date of the profit distribution resolution (date of annual general meeting of the German stock corporation) by the respective DR issuer.",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TotalNumberOfUnderlyingShares",
+      "description": "Total number of underlying German ordinary shares deposited by the respective DR issuer at the German depositary bank on the date of the profit resolution distribution of the German stock corporation.",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Ratio",
+      "description": "Ratio of the depositary certificate to the deposited securities. The ratio of depositary certificates stipulated in the issue conditions of the depositary certificate to the domestic securities stored by the German depository.",
+      "type": "Decimal (13 digits total, 2 decimals)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NumberOfCertificatesHeld",
+      "description": "Number of depositary certificates held by the creditor of the capital income (of the tax certificate) at the date of the profit distribution resolution.",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Paydate",
+      "description": "Date of Payment.",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "PayoutType",
+      "description": "Type of Payment.",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CashAccountNumber",
+      "description": "Cash account number to which the income got credited at the custodian to whom the tax voucher person is directly contracted.",
+      "type": "Text (max 200)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AccountNumberPayingAgentLevel",
+      "description": "If known: Account number of the account at the level of the German paying agent in which the shares are held.",
+      "type": "Text (max 200)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "GrossAmount",
+      "description": "Gross amount of the capital income generated (in Euro).",
+      "type": "Decimal (16 digits total, 2 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NetIncomePayment",
+      "description": "Net income payment (in EURO).",
+      "type": "Decimal (16 digits total, 2 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "WithholdingTaxAmount",
+      "description": "German withholding tax amount in Euro.",
+      "type": "Decimal (16 digits total, 2 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "SurchargesAmount",
+      "description": "German solidarity surcharge amount in Euro.",
+      "type": "Decimal (16 digits total, 2 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "WithholdingTaxRate",
+      "description": "Tax rate applied to capital income (German withholding tax rate).",
+      "type": "Decimal (4 digits total, 2 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "SurchargesRate",
+      "description": "Tax rate of the solidarity surcharge applied (Solidarity surcharge rate) The current solidarity surcharge rate of 5.5% must be populated as 5.50.",
+      "type": "Decimal (4 digits total, 2 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Nominal",
+      "description": "Quantity of securities on which the capital income is based (Number of shares / nominal value on which the income has been paid including Market Claims).",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information",
+        "8 FIFO Trades",
+        "9 Raw Transactions All"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NominalMoreThan5DaysPriorExdate",
+      "description": "Number of shares which have been received more than 5 days prior to the ex-date.",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NominalWithin5DaysPriorExdate",
+      "description": "Number of shares which have been received within 5 days prior to the ex-date.",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NominalLinkedToFinancialArrangement",
+      "description": "Number of German shares value which were linked to Financial Arrangements (particularly hedging instruments like options, futures etc. but also borrowed securities or securities purchased under a Repo).\n                                    Financial arrangements in the meaning of Section 45b (3) of the German Income Tax Act and as defined in margin number 80 of the guidance notes of the German Ministry of Finance from April 22, 2025. According to marginal 5 of the guidance notes from the German Ministry of Finance, German shares were linked to Financial Arrangements if the Financial Arrangements were not yet settled, expired or otherwise completed on the day after the annual general meeting of the German stock corporation which distributed the dividend.",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NominalNotLinkedToFinancialArrangement",
+      "description": "Number of German shares which were not linked to a Financial Arrangement.",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NominalLinkedToSecLending",
+      "description": "Number of German shares which are linked to a securities lending transaction that had not yet been completed on the day after the annual general meeting (AGM date).",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NominalLinkedToRepo",
+      "description": "Number of German shares which are linked to a repo transaction that had not yet been completed on the day after the annual general meeting (AGM date).",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ReceiptsAndDeliveriesMode",
+      "description": "Whether receipts/deliveries are declared with FiFo calculation (use the '8 FIFO Trades' sheet) or without (use the '9 Raw Transactions All' sheet).",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "FifoReceiptsMoreThan1000Available",
+      "description": "Are more than 1.000 (one thousand) remaining reportable receipt transactions available?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "FifoDeliveriesMoreThan1000Available",
+      "description": "Are more than 1.000 (one thousand) reportable deliver transactions available?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "OpeningBalance",
+      "description": "Balance before 12 month.",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "OpeningBalanceDate",
+      "description": "Date of the initial holdings evaluation.",
+      "type": "DateTime (YYYY-MM-DDThh:mm:ss)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Security Related Information",
+      "occursInSheets": [
+        "2 Security Related Information"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Relationship",
+      "description": "Indicate the role of the tax certificate receiver person.",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ReceiverGroupType",
+      "description": "'Single' for a normal recipient; 'CommunityMember' when this row is one member of a community of up to 10 persons.",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CommunityGroupId",
+      "description": "Identifier grouping up to 10 community members into one receiver. Required when ReceiverGroupType=CommunityMember.",
+      "type": "Text (max 45)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "PersonIdentifier",
+      "description": "Unique identifier for a person. Must be unique over subsequent files. For a subsequent request to the same person, the same identifier must be provided. To be defined by the customer institute.",
+      "type": "Text (max 45)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Title",
+      "description": "The person’s title if applicable.",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "5 Third Party Individuals"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NamePrefix",
+      "description": "The person’s name prefix if applicable.",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "5 Third Party Individuals"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "FirstName",
+      "description": "The person’s first name.",
+      "type": "Text (max 45)",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "5 Third Party Individuals"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000001"
+    },
+    {
+      "field": "LastName",
+      "description": "The person’s last name.",
+      "type": "Text (max 45)",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "5 Third Party Individuals"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000002"
+    },
+    {
+      "field": "NameAffix",
+      "description": "The person’s name prefix if applicable.",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "5 Third Party Individuals"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "DateOfBirth",
+      "description": "Date of birth. Partially unknown dates are permitted: yyyy-mm-00 (unknown day), yyyy-00-00 (unknown month and day), 0000-00-00 (entirely unknown).",
+      "type": "Date (YYYY-MM-DD; partial 0000 allowed)",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "5 Third Party Individuals"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "StreetOrPostalCode",
+      "description": "The street name of the address.",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "HouseNumber",
+      "description": "Possible range 0 – 99999. Specifying the house number “0” as a default, if no house number has been assigned, is not permissible. Specifying it as such is only permissible if the municipality has assigned the number “0”.",
+      "type": "Integer (0 - 99999)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "HouseNumberAddition",
+      "description": "Possible additions to the house number in the address: With a house number “5a”, the “a” would be mentioned here, the “5” must be indicated in the house number field. With a house number “105-109”, the “-109” would be mentioned here.",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AddressAddition",
+      "description": "Possible addition to foreign addresses.",
+      "type": "Text (max 50)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Postcode",
+      "description": "The postcode of the address. For German addresses only five digits are allowed.",
+      "type": "Text (max 5)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "City",
+      "description": "The place name of the address.",
+      "type": "Text (max 80)",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Country",
+      "description": "The contry of the address in ISO 3166-1 alpha-2.",
+      "type": "Country code (ISO 3166-1 alpha-2, 2 uppercase letters)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CountryOfTaxResidence",
+      "description": "Country of tax residency in ISO 3166-1 alpha-2.",
+      "type": "Country code (ISO 3166-1 alpha-2, 2 uppercase letters)",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "PersonTaxCategory",
+      "description": "'German' or 'NonGerman'. Determines which tax-ID fields apply.",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvestmentMarketTaxId",
+      "description": "The German tax identification number (IdNr) of the tax voucher person. Only digits are permitted.",
+      "type": "Numeric string (German IdNr, exactly 11 digits)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "5 Third Party Individuals"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ForeignTaxId",
+      "description": "If no German tax id number has been assigned yet: Tax identification attribute awarded by the country of residence.",
+      "type": "Text (max 35)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "3 Tax Voucher Individuals",
+      "occursInSheets": [
+        "3 Tax Voucher Individuals",
+        "4 Tax Voucher Legal Persons",
+        "5 Third Party Individuals",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Name",
+      "description": "The name of the non-natural person.",
+      "type": "Text (max 256)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Tax Voucher Legal Persons",
+      "occursInSheets": [
+        "4 Tax Voucher Legal Persons",
+        "6 Third Party Legal Persons"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvestmentMarketBusinessId",
+      "description": "German business identification number. The business identification number of the non-natural person without a hyphen before the differentiating element.",
+      "type": "Numeric string (German Wirtschafts-IdNr, 13 digits)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Tax Voucher Legal Persons",
+      "occursInSheets": [
+        "4 Tax Voucher Legal Persons",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvestmentMarketTaxNumber",
+      "description": "If a German business identification number hasn´t been assigned yet: The German tax number of the non-natural person.",
+      "type": "Numeric string (German Steuernummer, 13 digits)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Tax Voucher Legal Persons",
+      "occursInSheets": [
+        "4 Tax Voucher Legal Persons",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LEI",
+      "description": "If neither a German business tax id number in the meaning of section 139c German General Tax Code nor a German tax id number (usually the Corporate Income Tax id number) is available, the Legal Entity Identifier (LEI).",
+      "type": "LEI (ISO 17442, 20 alphanumeric)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Tax Voucher Legal Persons",
+      "occursInSheets": [
+        "4 Tax Voucher Legal Persons",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "EUID",
+      "description": "If neither a German business tax id number in the meaning of section 139c German General Tax Code nor a German tax id number (usually the Corporate Income Tax id number) is available nor a Legal Entity Identifier (LEI) is available, the European unique identifier (EUID; as referred to in Article 16 of Directive (EU) 2017/1132 of the European Parliament and of the Council).",
+      "type": "Text (max 200)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Tax Voucher Legal Persons",
+      "occursInSheets": [
+        "4 Tax Voucher Legal Persons",
+        "6 Third Party Legal Persons",
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalForm",
+      "description": "The foreign legal entity type must be specified as free text. Long and short form.",
+      "type": "Text (max 60)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Tax Voucher Legal Persons",
+      "occursInSheets": [
+        "4 Tax Voucher Legal Persons"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "DateOfFoundation",
+      "description": "Date when the entity was established / founded / incorporated / launched.",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Tax Voucher Legal Persons",
+      "occursInSheets": [
+        "4 Tax Voucher Legal Persons"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvestmentMarketSpecialFundsTaxNumber",
+      "description": "This specific German tax number gets assigned by the German Federal Central Tax Authority (Bundeszentralamt für Steuern) to non-German Special-Investment Funds in the meaning of Section 26 of the German Investment Tax Act (GITA) which opted to be treated as a tax transparent fund under Section 30 GITA. This is a conditional mandatory field. Please leave the field blank if you don´t meet the above condition.",
+      "type": "Numeric string (German Steuernummer, 13 digits)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "6 Third Party Legal Persons",
+      "occursInSheets": [
+        "6 Third Party Legal Persons"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NumberInChain",
+      "description": "Order in the custody chain. 1 is the custodian with the securities account for the beneficiary of person holding in favor of the beneficiary on its account.",
+      "type": "Integer",
+      "requiredness": "Required",
+      "firstSeenSheet": "7 Custody Chain",
+      "occursInSheets": [
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NameOfIntermediary",
+      "description": "Name of the depository/(sub-)custodian.",
+      "type": "Text (max 256)",
+      "requiredness": "Required",
+      "firstSeenSheet": "7 Custody Chain",
+      "occursInSheets": [
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NominalInAccount",
+      "description": "Number of shares / nominal value held in the account of the respective account holder (i.e. the tax voucher person or of the third party holding the securities in the name of the tax voucher person or the preceding intermediary) (Number of shares held in the account).",
+      "type": "Decimal (19 digits total, 4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "7 Custody Chain",
+      "occursInSheets": [
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "BIC",
+      "description": "BIC (Bank Identifier Code) is an 8 to 11-character code used to uniquely identify banks globally during international transactions, often called a SWIFT code. Structure: Comprised of 4 letters (bank code), 2 letters (country code), 2 letters/numbers (location code), and an optional 3-digit branch code (or 'XXX' for head office).",
+      "type": "BIC (ISO 9362, 8 or 11 alphanumeric)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "7 Custody Chain",
+      "occursInSheets": [
+        "7 Custody Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Direction",
+      "description": "'Receipt' (purchase / delivery-in / loan / repo) or 'Delivery' (sale / delivery-out / loan / repo). Up to 1000 rows each per request.",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "8 FIFO Trades",
+      "occursInSheets": [
+        "8 FIFO Trades"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TradeDate",
+      "description": "Trade Date.",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "8 FIFO Trades",
+      "occursInSheets": [
+        "8 FIFO Trades",
+        "9 Raw Transactions All"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TransactionType",
+      "description": "Category of securities trading transacted.",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "8 FIFO Trades",
+      "occursInSheets": [
+        "8 FIFO Trades",
+        "9 Raw Transactions All"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ContractualSettlementDate",
+      "description": "Agreed settlement date (Contractual settlement date).",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "8 FIFO Trades",
+      "occursInSheets": [
+        "8 FIFO Trades",
+        "9 Raw Transactions All"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ActualSettlementDate",
+      "description": "Actual settlement date.",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "8 FIFO Trades",
+      "occursInSheets": [
+        "8 FIFO Trades",
+        "9 Raw Transactions All"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TransactionReference",
+      "description": "Transaction reference beneficial owner/customer .",
+      "type": "Text (max 45)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "8 FIFO Trades",
+      "occursInSheets": [
+        "8 FIFO Trades",
+        "9 Raw Transactions All"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TransactionReferencePayingAgent",
+      "description": "Transaction reference German Paying Agent.",
+      "type": "Text (max 45)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "8 FIFO Trades",
+      "occursInSheets": [
+        "8 FIFO Trades",
+        "9 Raw Transactions All"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "IntraDaySequence",
+      "description": "Sortable number, for the case that more than one transaction per trade date is delivered.",
+      "type": "Integer",
+      "requiredness": "Required",
+      "firstSeenSheet": "9 Raw Transactions All",
+      "occursInSheets": [
+        "9 Raw Transactions All"
+      ],
+      "status": "pending",
+      "conceptId": null
+    }
+  ],
+  "kafe": [
+    {
+      "field": "generalData/Country",
+      "description": "Country of residence",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/General_Data/WithholdingTaxNumber",
+      "description": "Withholding tax number for refund",
+      "type": "Numeric string (8-digit BZSt withholding-tax number)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/General_Data/FormOfAddress",
+      "description": "Form of address",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/General_Data/FormOfTitle",
+      "description": "Title",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/General_Data/Name",
+      "description": "Last name",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000002"
+    },
+    {
+      "field": "CreditorNat/General_Data/GivenName",
+      "description": "First and middle name",
+      "type": "Text (max 80)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000001"
+    },
+    {
+      "field": "CreditorNat/General_Data/Birthday",
+      "description": "Date of birth",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/General_Data/NationalityIsDE",
+      "description": "Does the person with limited tax liability have German citizenship?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/General_Data/NationalityIsKW",
+      "description": "Does the person with limited tax liability have Kuwaiti citizenship?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/General_Data/NationalityIsCH",
+      "description": "Does the person with limited tax liability have Swiss citizenship?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/General_Data/TinAvailable",
+      "description": "Does the person with limited tax liability have a foreign tax identification number?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/General_Data/IDNumber_CountryOfResidence",
+      "description": "Foreign tax identification number",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/Street",
+      "description": "Street",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/Floor",
+      "description": "Floor",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/Apartment",
+      "description": "Apartment number",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/StreetNumber",
+      "description": "Street number",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/AdditionalAddressDetails",
+      "description": "Additional address details",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/District",
+      "description": "District",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/Postcode",
+      "description": "Postcode",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/City",
+      "description": "City",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/Region_FederalState",
+      "description": "State or province",
+      "type": "Text (max 120)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/Address/Country",
+      "description": "Country",
+      "type": "Text",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/ContactPerson/FirstName",
+      "description": "First and middle name",
+      "type": "Text (max 80)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000001"
+    },
+    {
+      "field": "CreditorNat/ContactPerson/Name",
+      "description": "Last name",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000002"
+    },
+    {
+      "field": "CreditorNat/ContactPerson/Organization",
+      "description": "Organisation",
+      "type": "Text (max 256)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/ContactPerson/Email",
+      "description": "E-mail address",
+      "type": "Text (max 254)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/ContactPerson/PhoneNumber",
+      "description": "Telephone number (area code/phone number)",
+      "type": "Text (max 21)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/German_TaxOffice/German_TaxOffice",
+      "description": "Is the person with limited tax liability registered with a German tax office?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/German_TaxOffice/TaxNumber",
+      "description": "Tax number (13 digits)",
+      "type": "Text (max 13)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/German_TaxOffice/TaxLiabilityGermany",
+      "description": "Was the person with limited tax liability subject to unlimited income tax liability and did this tax\n\t\t\t\t\t\tliability end in the year the tax was due or during the ten calendar years preceding the most recent inflow indicated in the\n\t\t\t\t\t\tapplication?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/German_TaxOffice/TaxLiabilityGermany5Years",
+      "description": "Was the person with limited tax liability subject to unlimited tax liability in Germany for at least five\n\t\t\t\t\t\tyears during the ten years preceding the end of the unlimited tax liability?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorNat/German_TaxOffice/LiabilityEnded",
+      "description": "In which calendar year did the unlimited tax liability end?",
+      "type": "Text",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/General_Data/LegalForm",
+      "description": "Which block below is filled in for this representative: a natural person or a non-natural person (organisation).",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Authority/TaxProfessions",
+      "description": "I confirm that I am a member of the tax advisory professions within the meaning of sections 3 or 4 number 11\n\t\t\t\t\t\tGerman Tax Advisory Act.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Authority/OtherReasons",
+      "description": "I confirm that I am authorised to provide assistance in tax matters for other reasons.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/NaturalPerson/General_Data/FormOfAddress",
+      "description": "Form of address",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/NaturalPerson/General_Data/Title",
+      "description": "Title",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/NaturalPerson/General_Data/FirstName",
+      "description": "First and middle name",
+      "type": "Text (max 80)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000001"
+    },
+    {
+      "field": "AuthorizedRep/NaturalPerson/General_Data/LastName",
+      "description": "Last name",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000002"
+    },
+    {
+      "field": "AuthorizedRep/NonNaturalPerson/General_Data/Name",
+      "description": "Legal name",
+      "type": "Text (max 256)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/NonNaturalPerson/General_Data/Department",
+      "description": "Department",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/Street",
+      "description": "Street",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/StreetNumber",
+      "description": "Street number",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/AdditionalAddressDetails",
+      "description": "Additional address details",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/District",
+      "description": "District",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/Postcode",
+      "description": "Postcode",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/City",
+      "description": "City",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/Region_FederalState",
+      "description": "State or province",
+      "type": "Text (max 120)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/Country",
+      "description": "Country",
+      "type": "Text",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/Apartment",
+      "description": "Apartment number",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AuthorizedRep/Address/Floor",
+      "description": "Floor",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/LegalForm",
+      "description": "Which block below is filled in for this representative: a natural person or a non-natural person (organisation).",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/NatPerson/FormOfAddress",
+      "description": "Form of address",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/NatPerson/Title",
+      "description": "Title",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/NatPerson/FirstName",
+      "description": "First and middle name",
+      "type": "Text (max 80)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000001"
+    },
+    {
+      "field": "LegalRep/NatPerson/LastName",
+      "description": "Last name",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000002"
+    },
+    {
+      "field": "LegalRep/JurPerson/OrganisationName",
+      "description": "Legal name",
+      "type": "Text (max 256)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/JurPerson/OrganisationDepartment",
+      "description": "Department",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/Street",
+      "description": "Street",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/City",
+      "description": "City",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/Country",
+      "description": "Country",
+      "type": "Text",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/HouseNumber",
+      "description": "Street number",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/ApartmentNumber",
+      "description": "Apartment number",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/Floor",
+      "description": "Floor",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/District",
+      "description": "District",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/Region_FederalState",
+      "description": "State or province",
+      "type": "Text (max 120)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/PostCode",
+      "description": "Postcode",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalRep/Address/AdditionalAddressDetails",
+      "description": "Additional address details",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalBasis/DTA",
+      "description": "Double taxation agreements (DTAs) or other bilateral agreements KaFE also defines a seventh legal basis, IntOrg (agreements/conventions for international organisations and intergovernmental organisations), which status code 2101 treats as mutually exclusive with all six legal bases above; IntOrg has no column of its own in production's own field list, so this template cannot express it. (status code 2101: \"It is not permitted to combine the legal bases.\")",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalBasis/Par43bEStG",
+      "description": "Section 43b German Income Tax Act (Directive 2011/96/EU)",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalBasis/Par44aEStG",
+      "description": "Section 44a (9) German Income Tax Act",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalBasis/Par50gEStG",
+      "description": "Section 50g German Income Tax Act",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalBasis/Par32Abs6KStG",
+      "description": "Section 32 (6) German Corporate Tax Act This legal basis only applies to claims concerning inflows on or after 15 April 2025; like the other legal-basis flags, it cannot be combined with the IntOrg legal basis (status code 2101: \"It is not permitted to combine the legal bases.\").",
+      "type": "Boolean (true / false)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalBasis/Art63AEUV",
+      "description": "Asserted claim under Article 63 of the Treaty on the Functioning of the European Union (TFEU)",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Bank/Name",
+      "description": "Name of the bank",
+      "type": "Text (max 70)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Bank/City",
+      "description": "City",
+      "type": "Text (max 70)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Bank/AccountHolder",
+      "description": "Name of the the account holder",
+      "type": "Text (max 70)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Bank/Account/BIC",
+      "description": "BIC/SWIFT code",
+      "type": "Text (max 11)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Bank/Account/IBAN",
+      "description": "IBAN",
+      "type": "Text (max 34)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Bank/Account/AccountNumber",
+      "description": "Indication of the account number, if no IBAN available",
+      "type": "Text (max 40)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Residence/NonResidency_DE",
+      "description": "Was the person with limited tax liability a resident of the specified country of residence at the time of\n\t\t\t\t\t\tthe inflow and did not have its registered office or place of management in Germany at that time?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/IdNr",
+      "description": "German tax identification number (IdNo) (11-digit)",
+      "type": "Text (max 11)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/SwitzerlandQuestions/TaxLiabilityCH",
+      "description": "Has the person with limited tax liability been subject to the generally levied taxes in Switzerland\n\t\t\t\t\t\t(federal, cantonal, municipal) with all generally taxable income from Germany?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/SwitzerlandQuestions/In_Germany_Min_5_Years_Taxable",
+      "description": "Was the person with limited tax liability subject to unlimited tax liability in Germany for at least five\n\t\t\t\t\t\tyears?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/SwitzerlandQuestions/In_Germany_Tax_Liability_Ended",
+      "description": "Did the unlimited tax liability in Germany end in the due year or in the five calendar years preceding the\n\t\t\t\t\t\toldest inflow included in the application?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/SwitzerlandQuestions/DependantPersonalServices/EmploymentReasons",
+      "description": "Has the person with limited tax liability become resident in Switzerland, in order to pursue genuine\n\t\t\t\t\t\temployment there?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/SwitzerlandQuestions/DependantPersonalServices/Employer",
+      "description": "Name and address of the employer",
+      "type": "Text (max 500)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/SwitzerlandQuestions/DependantPersonalServices/EconomicInterest",
+      "description": "Does the person with limited tax liability have an interest in the employer or another significant economic\n\t\t\t\t\t\tinterest (e.g. a participating loan)?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/SwitzerlandQuestions/DependantPersonalServices/EconomicInterestDescription",
+      "description": "Please describe",
+      "type": "Text (max 500)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/SwitzerlandQuestions/DependantPersonalServices/MoveDate",
+      "description": "When did the move to Switzerland take place?",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/SwitzerlandQuestions/DependantPersonalServices/OtherReasons",
+      "description": "What were the reasons for moving to Switzerland?",
+      "type": "Text (max 500)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Affirmations/AdditionalInformation",
+      "description": "Additional information on the application",
+      "type": "Text (max 5000)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Affirmations/JustificationArt63TFEU",
+      "description": "Justification for the asserted claim under Article 63 TFEU.",
+      "type": "Text (max 15000)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Affirmations/ApplicationPar50c",
+      "description": "A refund according to section 50c (3) German Income Tax Act in connection with an agreement for the\n\t\t\t\t\t\tavoidance of double taxation (DTA) or other bilateral agreements has neither been applied for nor made to date.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/ZER/Registration",
+      "description": "Is the person with limited tax liability recorded in the German register of non-profit organisations\n\t\t\t\t\t\tauthorised to issue donation receipts (Zuwendungsempfängerregister)?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/ZER/ReferenceNumber",
+      "description": "Reference number",
+      "type": "Text (max 36)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/Purposes/NonProfit",
+      "description": "The person with limited tax liability pursues public benefit purposes (section 52 of the Fiscal Code).",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/Purposes/PublicBenefitPurposes",
+      "description": "Free-text list of which of the 26 numbered public-benefit purposes (section 52(2) German Fiscal Code) apply, e.g. '1, 8, 21'. The real schema models these as 26 separate yes/no flags (ZweckNr1..ZweckNr26, GemeinnuetzigeZwecke_Struct); this column collapses them into one field.",
+      "type": "Text",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/Purposes/Charity",
+      "description": "The person with limited tax liability pursues charitable purposes (section 53 of the Fiscal Code).",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/Purposes/Church",
+      "description": "The person with limited tax liability pursues ecclesiastical purposes (section 54 of the Fiscal Code).",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/Purposes/Exclusivity",
+      "description": "Does the person with limited tax liability serve directly and exclusively tax-privileged purposes (see\n\t\t\t\t\t\tsections 56 and 57 of the Fiscal Code)?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/Purposes/StartDate",
+      "description": "Start of the public-benefit, charitable or ecclesiastical activity",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/Statuses/LastChangeDate",
+      "description": "Date on which the statutes were last changed",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/StructuralConnectionToGermany/TaxPrivilegedPurposesDE",
+      "description": "Is the person with limited tax liability pursuing the tax-privileged purposes at least partly in Germany?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/StructuralConnectionToGermany/GermanResidentsEligibility",
+      "description": "Are natural persons who have their place of residence or habitual abode in Germany being advanced?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/StructuralConnectionToGermany/GermanReputation",
+      "description": "Does the activity carried out by the taxpayer contribute to the reputation of the Federal Republic of\n\t\t\t\t\t\tGermany abroad?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/StructuralConnectionToGermany/Explanation",
+      "description": "Specification how the connection to Germany is manifested",
+      "type": "Text (max 5000)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/StructuralConnectionToGermany/AssetLock/GermanCorporation",
+      "description": "If the person with limited tax liabiliy is dissolved or liquidated or if its former purpose ceases, the\n\t\t\t\t\t\tassets accrue - at least in part - to a tax-privileged corporation resident in Germany for tax-privileged purposes.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/StructuralConnectionToGermany/AssetLock/GermanCorporationKStG",
+      "description": "If the person with limited tax liabiliy is dissolved or liquidated or if its former purpose ceases, the\n\t\t\t\t\t\tassets accrue - at least in part - to one of the corporations listed in section 5 (2) of the Corporation Tax Act for tax-privileged\n\t\t\t\t\t\tpurposes.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/StructuralConnectionToGermany/AssetLock/LegalEntity",
+      "description": "If the person with limited tax liabiliy is dissolved or liquidated or if its former purpose ceases,the\n\t\t\t\t\t\tassets accrue - at least in part - to a legal person under public law for tax-privileged purposes.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/StructuralConnectionToGermany/AssetLock/Other",
+      "description": "If the person with limited tax liabiliy is dissolved or liquidated or if its former purpose ceases,the\n\t\t\t\t\t\tassets accrue - at least in part - to another person.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/Management",
+      "description": "Is the actual management directed exclusively and directly towards achieving the tax-privileged purposes and\n\t\t\t\t\t\tdoes it conform to the provisions on the requirements for tax privileges contained in the statutes?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxPrivileges/ConstitutionLoyalty",
+      "description": "Does the person with limited tax liability advance efforts directed against the liberal democratic basic\n\t\t\t\t\t\torder (freiheitliche demokratische Grundordnung) or against the existence or security of the Federal Republic of Germany or its Länder?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "1 Creditors Natural",
+      "occursInSheets": [
+        "1 Creditors Natural",
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "generalData/LegalForm",
+      "description": "Legal form",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "generalData/SpecificLegalForm",
+      "description": "specific legal form",
+      "type": "Text (max 80)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "generalData/ProfitsPG_CH",
+      "description": "At least three quarters of the profits of the partnership attributable to persons who are resident in\n\t\t\t\t\t\tSwitzerland as natural persons or legal entities within the meaning of art. 4 DTA-CH?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/ContactPerson/FirstName",
+      "description": "First and middle name",
+      "type": "Text (max 80)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000001"
+    },
+    {
+      "field": "CreditorJur/ContactPerson/Name",
+      "description": "Last name",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "assigned",
+      "conceptId": "IO:0000002"
+    },
+    {
+      "field": "CreditorJur/ContactPerson/Organization",
+      "description": "Organisation",
+      "type": "Text (max 256)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/ContactPerson/Email",
+      "description": "E-mail address",
+      "type": "Text (max 254)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/ContactPerson/PhoneNumber",
+      "description": "Telephone number (area code/phone number)",
+      "type": "Text (max 21)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/General_Data/DateOfEstablishment",
+      "description": "Date of incorporation",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/General_Data/IncorporationCountry",
+      "description": "Country under whose law the organisation/company is incorporated",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/General_Data/TinAvailable",
+      "description": "Does the person with limited tax liability have a foreign tax identification number?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/General_Data/IDNumber_CountryOfResidence",
+      "description": "Foreign tax identification number",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/General_Data/TransparentEntity",
+      "description": "Is the person with limited tax liability treated as a transparent entity by the tax authority of the country\n\t\t\t\t\t\tof residence?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/General_Data/WithholdingTaxNumber",
+      "description": "Withholding tax number for refund",
+      "type": "Numeric string (8-digit BZSt withholding-tax number)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/General_Data/Name",
+      "description": "Legal name",
+      "type": "Text (max 256)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/General_Data/Department",
+      "description": "Department",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/Street",
+      "description": "Street",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/StreetNumber",
+      "description": "Street number",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/AdditionalAddressDetails",
+      "description": "Additional address details",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/District",
+      "description": "District",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/Postcode",
+      "description": "Postcode",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/City",
+      "description": "City",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/Region_FederalState",
+      "description": "State or province",
+      "type": "Text (max 120)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/Country",
+      "description": "Country",
+      "type": "Text",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/Apartment",
+      "description": "Apartment number",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Address/Floor",
+      "description": "Floor",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/LEI",
+      "description": "Legal Entity Identifier (LEI)",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Register/Register",
+      "description": "Is the person with limited tax liability entered in a register (e.g. company register, commercial register,\n\t\t\t\t\t\tfoundation register)?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Register/RegistryAuthority",
+      "description": "Registry authority",
+      "type": "Text (max 80)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Register/RegistrationNumber",
+      "description": "Registration number",
+      "type": "Text (max 40)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Boerse/StockExchange",
+      "description": "Are the principal class of shares belonging to the person subject to limited tax liability subject to\n\t\t\t\t\t\tsubstantial and regular trading on a recognised stock exchange?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Boerse/ISIN",
+      "description": "ISIN (12-digit)",
+      "type": "ISIN (12-digit)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/Boerse/Boersenplatz",
+      "description": "Stock exchange on which the stocks are traded.",
+      "type": "Text (max 120)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/German_TaxOffice/German_TaxOffice",
+      "description": "Is the person with limited tax liability registered with a German tax office?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/German_TaxOffice/TaxNumber",
+      "description": "Tax number (13 digits)",
+      "type": "Text (max 13)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/OptingUnderCorpTaxAct/OptionKStG",
+      "description": "Has the option to be treated like a corporation for tax purposes pursuant to section 1a German Corporate\n\t\t\t\t\t\tIncome Tax Act been exercised?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/OptingUnderCorpTaxAct/TaxAuthority",
+      "description": "Tax authority",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditorJur/OptingUnderCorpTaxAct/FileNumber",
+      "description": "File number / tax number",
+      "type": "Text (max 30)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvTaxAct/Requested_StatusCertificate",
+      "description": "Has a status certificate pursuant to section 7 (3) Investment Tax Act been issued or applied for?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvTaxAct/StatusCertificateDetails/Issuer",
+      "description": "Issuing authority or authority to which the status certificate was applied for",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvTaxAct/StatusCertificateDetails/FileNumber",
+      "description": "Ordinal number / tax number (if issued)",
+      "type": "Text (max 13)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvTaxAct/StatusCertificateDetails/Period/from",
+      "description": "Valid from",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvTaxAct/StatusCertificateDetails/Period/to",
+      "description": "Valid until",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvTaxAct/SpecialInvestmentFunds/Special",
+      "description": "Is this a special investment fund within the meaning of section 26 Investment Tax Act?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "InvTaxAct/SpecialInvestmentFunds/TransparencyOption",
+      "description": "Has the transparency option been exercised?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/DifferentAddress",
+      "description": "Weicht der Ort der tatsächlichen Geschäftsleitung von der angegebenen Adresse ab?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/Street",
+      "description": "Street",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/City",
+      "description": "City",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/Country",
+      "description": "Country",
+      "type": "Text",
+      "requiredness": "Required",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/HouseNumber",
+      "description": "Street number",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/ApartmentNumber",
+      "description": "Apartment number",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/Floor",
+      "description": "Floor",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/District",
+      "description": "District",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/Region_FederalState",
+      "description": "State or province",
+      "type": "Text (max 120)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/PostCode",
+      "description": "Postcode",
+      "type": "Text (max 20)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Management/Address/AdditionalAddressDetails",
+      "description": "Additional address details",
+      "type": "Text (max 80)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxTreatment/W-IdNr",
+      "description": "Business identification number",
+      "type": "Text (max 16)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Affirmations/ApplicationPar11InvStG",
+      "description": "A refund in accordance with section 11 Investment Tax Act was neither applied for nor made to the Federal\n\t\t\t\t\t\tCentral Tax Office or another tax authority.",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "2 Creditors Juridical",
+      "occursInSheets": [
+        "2 Creditors Juridical"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Issuer",
+      "description": "Issuing authority",
+      "type": "Text (max 80)",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Certificates Of Residence",
+      "occursInSheets": [
+        "3 Certificates Of Residence"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "IssuedAt",
+      "description": "Date of issue",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Certificates Of Residence",
+      "occursInSheets": [
+        "3 Certificates Of Residence"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ValidFrom",
+      "description": "Valid from",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Certificates Of Residence",
+      "occursInSheets": [
+        "3 Certificates Of Residence"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ValidUntil",
+      "description": "Valid until",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "3 Certificates Of Residence",
+      "occursInSheets": [
+        "3 Certificates Of Residence"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CertificateOfResidenceId",
+      "description": "Foreign key. Must match an id value on the '3 Certificates Of Residence' sheet -- identifies which certificate of residence supports this income.",
+      "type": "Text (identifier used to link the sheets; any unique value)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CapitalIncome",
+      "description": "Type of capital income",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Stocks_ConvertibleBonds/ISIN",
+      "description": "ISIN (12-digit)",
+      "type": "ISIN (12-digit)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Stocks_ConvertibleBonds/NumberOfShares",
+      "description": "Number of shares/bonds",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "SubstantialHolding/IsSubstantial",
+      "description": "Is it a substential holding (at least 10 %)?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "SubstantialHolding/Ownership",
+      "description": "Size of the ownership interest (in %)",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "SubstantialHolding/HoldingPeriod18M",
+      "description": "Has the investment been held for a period of at least 18 months?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "SubstantialHolding/HoldingPeriod12M",
+      "description": "Has the investment been held for a period of at least one year?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "SubstantialHolding/HoldingPeriod6M",
+      "description": "Has the investment been held for a period of at least 6 months?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "IndirectHolding/IndirectHolding",
+      "description": "Is it a joint deposit/account or another form of indirect holding?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "IndirectHolding/CompanyOfSpouses",
+      "description": "Handelt es sich um eine Gesellschaft von Ehegatten, die jeweils zu 50% beteiligt sind?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "IndirectHolding/SizeOfIndirectHolding",
+      "description": "Size of the indirect holding (in %)",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Debtor/Name",
+      "description": "Debtor of the capital income / distributing company",
+      "type": "Text (max 256)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Debtor/TaxNumber",
+      "description": "Tax number",
+      "type": "Text (max 13)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NonResidency_DE",
+      "description": "Was the person with limited tax liability a resident of the specified country of residence at the time of\n\t\t\t\t\t\tthe inflow and did not have its registered office or place of management in Germany at that time?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "DateOfReceiptOfCapitalIncome",
+      "description": "Date of receipt of capital income",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "GrossIncomeFromCapitalReceived",
+      "description": "Gross income from capital received (in Euro)",
+      "type": "Decimal (2 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Withheld_Taxes",
+      "description": "Withheld German capital income tax (in Euro)",
+      "type": "Decimal (2 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Requested_Refund",
+      "description": "The refund amount being claimed for this income (informational; BZSt itself computes the actual refund from the withheld tax and the applicable treaty/statutory rate -- this is not a real KaFE XSD field).",
+      "type": "Decimal",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "DocumentDescription",
+      "description": "Short description of the file content (e.g. certificate of residence).",
+      "type": "Text (max 120)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "DocumentProof/TaxCertificateNumber",
+      "description": "Serial number",
+      "type": "UUID (xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Hidden_ProfitDistribution/ConstructiveDividend",
+      "description": "Does it concern a constructive dividend?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Economic_Ownership/Ownership_and_Right_To_Use",
+      "description": "Did the person with limited tax liability hold the beneficial ownership (right to use the income) at the\n\t\t\t\t\t\ttime of the inflow?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TaxExemption",
+      "description": "Was the person with limited tax liability fully (or partially) exempt from tax in the specified country of\n\t\t\t\t\t\tresidence at the time of the inflow?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LifeInsurancePolicyNumber",
+      "description": "Policy number of the life insurance",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Depositary_Receipts/Is_DR",
+      "description": "Are they depositary receipts? e.g. American Depositary Receipts (ADR).",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Depositary_Receipts/ISIN_DR",
+      "description": "ISIN of the underlying (12-digit)",
+      "type": "ISIN (12-digit)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "RemittanceBase/IsSubject",
+      "description": "Werden die Erträge im angegebenen Ansässigkeitsstaat nur dann der Besteuerung unterworfen, wenn sie dorthin\n\t\t\t\t\t\tüberwiesen oder dort bezogen worden sind (Überweisungsklausel)?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "RemittanceBase/Amount",
+      "description": "Betrag, der in den Ansässigkeitsstaat überwiesen oder dort bezogen wurde.",
+      "type": "Decimal (2 decimals)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Business_Establishment/Business_Establishment_DE",
+      "description": "Has the capital income distributed to a permanent establishment / fixed entity located in Germany of the\n\t\t\t\t\t\tperson subject to limited taxation?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "UnlimitedForeignCorporateTaxLiability",
+      "description": "Was the person with limited tax liability subject to unlimited corporate\n\t\t\t\t\t\tincome tax liability or a comparable tax liability in their country of residence without any option to choose?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "CreditAmount",
+      "description": "To what extent was the German capital gains tax credited in full or in\n\t\t\t\t\t\tpart against taxation in the country of residence or deducted from the tax base, or is it possible\n\t\t\t\t\t\tto carry this forward to future tax periods (tax credit carryforward)?",
+      "type": "Decimal (2 decimals)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/HoldingPeriod/HoldingMore45D",
+      "description": "Anzahl der Anteile, die innerhalb des Mindesthaltezeitraums an mindestens 45 Tagen ohne Unterbrechung\n\t\t\t\t\t\tgehalten wurden (§ 50j Absatz 4 Satz 2 EStG).",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/HoldingPeriod/HoldingMore1Y",
+      "description": "Davon Anzahl der Anteile, die im Zeitpunkt des Zuflusses mindestens ein Jahr ohne Unterbrechung gehalten\n\t\t\t\t\t\twurden (§ 50j Absatz 4 Satz 2 EStG).",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/HoldingPeriod/HoldingLess45D",
+      "description": "Anzahl der Anteile, die kürzer 45 Tage gehalten wurden.",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/HoldingPeriod/SharesPar50jEStG",
+      "description": "Anzahl der Anteile im Sinne des § 50j EStG.",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/MinValueChangeRisk/OpposingClaims",
+      "description": "Hatte die beschränkt steuerpflichtige Person oder eine ihr nahestehende Person während der Mindesthaltedauer\n\t\t\t\t\t\tgegenläufige Ansprüche?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/MinValueChangeRisk/RiskMin70",
+      "description": "Anzahl der Anteile, für die die beschränkt steuerpflichtige Person das Wertänderungsrisiko während der\n\t\t\t\t\t\tMindesthaltedauer zu mindestens 70% getragen hat. (Bezogen auf die Anteile im Sinne des § 50j EStG)",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/MinValueChangeRisk/OtherOpposingClaims",
+      "description": "Waren während der Mindesthaltedauer gegenläufige Ansprüche vorhanden, die nicht vollständig den Anteilen im\n\t\t\t\t\t\tSinne des § 50j EStG (Haltedauer mindestens 45 Tage, jedoch kürzer als 1 Jahr) zugeordnet waren? (Die Frage bezieht sich auf den\n\t\t\t\t\t\tgesamten Bestand der Anteils- oder Genussscheingattung.)",
+      "type": "Boolean (true / false)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/ForwardingObligation/ForwardingObligation",
+      "description": "Lag eine Verpflichtung zur unmittelbaren oder mittelbaren Weiterleitung der Kapitalerträge vor?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/ForwardingObligation/NumberOfShares",
+      "description": "Anzahl der Anteile, für die eine Verpflichtung zur unmittelbaren oder mittelbaren Weiterleitung der\n\t\t\t\t\t\tKapitalerträge vorlag. (Bezogen auf die Anteile im Sinne des § 50j EStG)",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/ForwardingObligation/FurtherForwardingObligation",
+      "description": "Lag eine Verpflichtung zur unmittelbaren oder mittelbaren Weiterleitung der Kapitalerträge vor, die über die\n\t\t\t\t\t\tAnteile im Sinne des § 50j EStG (Haltedauer mindestens 45 Tage, jedoch kürzer als 1 Jahr) hinausgeht? (Bezogen auf den gesamten Bestand\n\t\t\t\t\t\tder Anteils- oder Genussscheingattung.)",
+      "type": "Boolean (true / false)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/ReturnObligation/ReturnObligation",
+      "description": "Lagen Rückgabeverpflichtungen ohne Dividendenberechtigung für mit Dividendenberechtigung erworbene Anteile\n\t\t\t\t\t\tvor? (Bezogen auf den gesamten Bestand der Anteils- oder Genussscheingattung.)",
+      "type": "Boolean (true / false)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Questions_for_50j/ReturnObligation/NumberOfShares",
+      "description": "Anzahl der Anteile, für die eine Rückgabeverpflichtung ohne Dividendenberechtigung für mit\n\t\t\t\t\t\tDividendenberechtigung erworbene Anteile vorlag.",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Conditional",
+      "firstSeenSheet": "4 Income",
+      "occursInSheets": [
+        "4 Income"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "SequenceNumber",
+      "description": "Sequence number of the holding. From the person subject of limited taxation to the debtor oft he capital income\n\t\t\t\t\t/ distributing company, starting at 1.",
+      "type": "Integer",
+      "requiredness": "Required",
+      "firstSeenSheet": "5 Investment Chain",
+      "occursInSheets": [
+        "5 Investment Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "OrganizationName",
+      "description": "Company name",
+      "type": "Text (max 256)",
+      "requiredness": "Required",
+      "firstSeenSheet": "5 Investment Chain",
+      "occursInSheets": [
+        "5 Investment Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "LegalForm",
+      "description": "Legal form",
+      "type": "Text (max 80)",
+      "requiredness": "Required",
+      "firstSeenSheet": "5 Investment Chain",
+      "occursInSheets": [
+        "5 Investment Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Ownership",
+      "description": "Size of the ownership in interest (in %)",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "5 Investment Chain",
+      "occursInSheets": [
+        "5 Investment Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Country",
+      "description": "Country of residence",
+      "type": "Enum",
+      "requiredness": "Optional",
+      "firstSeenSheet": "5 Investment Chain",
+      "occursInSheets": [
+        "5 Investment Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "GermanTaxNumber",
+      "description": "Tax number",
+      "type": "Text (max 13)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "5 Investment Chain",
+      "occursInSheets": [
+        "5 Investment Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TIN",
+      "description": "Foreign tax identification number",
+      "type": "Text (max 40)",
+      "requiredness": "Optional",
+      "firstSeenSheet": "5 Investment Chain",
+      "occursInSheets": [
+        "5 Investment Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AssetManagement",
+      "description": "Is the company exclusively engaged in asset management?",
+      "type": "Boolean (true / false)",
+      "requiredness": "Required",
+      "firstSeenSheet": "5 Investment Chain",
+      "occursInSheets": [
+        "5 Investment Chain"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TransactionNumber",
+      "description": "Sequence number of the transaction, starting with 1",
+      "type": "Integer",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "DepotNumber",
+      "description": "Account / deposit number",
+      "type": "Text (max 40)",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Depot/OpeningBalance",
+      "description": "Opening balance (number of shares)",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Depot/DateOfOpeningBalance",
+      "description": "Date of the specified opening balance",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Depot/ClosingBalance",
+      "description": "Closing balance two months after the inflow date (number of shares)",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "Depot/DateOfClosingBalance",
+      "description": "Date of the specified closing balance",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TransactionDirection",
+      "description": "Inflow / Outflow",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TradingDay",
+      "description": "Trading day",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "TransactionType",
+      "description": "Transaction",
+      "type": "Enum",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "NumberOfShares",
+      "description": "Number of shares",
+      "type": "Decimal (4 decimals)",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "AgreedSettlementDate",
+      "description": "Agreed settlement date",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    },
+    {
+      "field": "ActualSettlementDate",
+      "description": "Actual settlement date",
+      "type": "Date (YYYY-MM-DD)",
+      "requiredness": "Required",
+      "firstSeenSheet": "6 Transaction Data",
+      "occursInSheets": [
+        "6 Transaction Data"
+      ],
+      "status": "pending",
+      "conceptId": null
+    }
+  ]
+}
