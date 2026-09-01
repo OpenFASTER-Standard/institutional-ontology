@@ -1,7 +1,7 @@
 #mapping_set_id: https://purl.openfaster.org/io/mappings/mikadiv-kafe.sssom.tsv
 #mapping_set_description: Field-to-concept mappings between the Institutional Ontology and the MiKaDiv (mikadiv-vib) and KaFE Excel templates (openfaster-spec).
 #license: https://creativecommons.org/licenses/by/4.0/
-#creator_id: https://github.com/divizend
+#creator_id: https://github.com/OpenFASTER-Standard
 #curie_map:
 #  IO: "https://purl.openfaster.org/io/IO_"
 #  skos: "http://www.w3.org/2004/02/skos/core#"

@@ -1,15 +1,21 @@
 # Institutional Ontology
 
+Part of [OpenFASTER](https://openfaster.org), alongside
+[`spec`](https://github.com/OpenFASTER-Standard/spec) and
+[`riptide`](https://github.com/OpenFASTER-Standard/riptide).
+
 A controlled vocabulary of formal/administrative ("institutional," in Searle's
 sense of institutional facts and status functions) concepts, built to give
 independent schemas a shared, stable set of things to point at instead of
 re-deriving equivalence between them pairwise.
 
-The first concrete domain is German tax reporting: aligning
-[MiKaDiv](https://internal-gitlab.default.svc.cluster.local/divizend/bulk-platform/platform)
+The first concrete domain is German tax reporting: aligning MiKaDiv
 (`mikadiv-vib`) and KaFE, whose Excel templates are generated from real XSD
-schemas in `openfaster-spec` via `mapping.py`. That's the grounding, not the
-ceiling — the ontology itself is meant to be domain-agnostic.
+schemas in [`spec`](https://github.com/OpenFASTER-Standard/spec) via
+`mapping.py`. That's the grounding, not the ceiling — the ontology itself is
+meant to be domain-agnostic.
+
+Licensed [CC BY 4.0](LICENSE), matching the rest of OpenFASTER.
 
 ## Model
 
@@ -17,8 +23,7 @@ Built on real OBO Foundry practice (ROBOT + BFO + IAO + SSSOM), **without**
 registering as an OBO Foundry member ontology — own IRI namespace
 (`https://purl.openfaster.org/io/`), tooling/conventions only. Every choice
 below is grounded in how real, currently-maintained ontologies actually do
-this, not invented for this project — see the design conversation linked from
-bulk-platform's `PROGRESS.md` for the underlying research.
+this, not invented for this project.
 
 - **Formalism:** OWL, not SKOS. Built on
   [BFO](https://basic-formal-ontology.org/) (Basic Formal Ontology) as the
