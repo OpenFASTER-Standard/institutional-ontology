@@ -128,21 +128,40 @@ this, not invented for this project.
 
 ## Adding a concept
 
-**Hand-edit `institutional-ontology-edit.ofn` directly in a plain text
-editor. Never let a tool (Protégé's Save, `robot convert`, `robot merge` back
-onto the same file) rewrite it.** Verified empirically, not assumed: running
-the file through the OWL API's own functional-syntax writer (`robot convert
---format ofn`, the same machinery Protégé uses internally) is semantically
-lossless (`robot diff` confirms 0 real axioms lost) but **textually rewrites
-the entire file** — every CURIE (`IO:0000001`, `IAO:0000115`) expanded to a
-full bracketed IRI, annotations reordered alphabetically by property instead
-of our intentional label→altLabel→definition→evidence→source order,
-declarations regrouped to the top. That's exactly the diff-unfriendliness
-OWL Functional Syntax was chosen over RDF/XML/Turtle to avoid — running any
-such tool over this file would turn every future one-line edit into a
-whole-file diff. Protégé is still fine for browsing/validating (load a copy,
-check the reasoner, explore the hierarchy) — just never save from it back
-over this file.
+**No GUI ontology editor, ever — hand-edit `institutional-ontology-edit.ofn`
+directly in a plain text editor, and use `scripts/build.sh` (ROBOT) for
+everything else.** This isn't a fallback for lacking Protégé — investigated
+deeply and confirmed: Protégé (v4/5, its real architecture) is a thin GUI
+directly on the OWL API, the same library ROBOT itself uses. Every core
+curator action reduces to the identical axiom type hand-writing produces
+(`Declaration` → `OWLDeclarationAxiom`, `AnnotationAssertion` →
+`OWLAnnotationAssertionAxiom`, `SubClassOf` → `OWLSubClassOfAxiom`) — there's
+no separate GUI-only data model being bypassed. Concretely, per action:
+
+- **Writing axioms** — hand-edit, per the template below. Verified
+  empirically (not assumed): running the file through the OWL API's own
+  functional-syntax writer (`robot convert --format ofn`, the same machinery
+  Protégé's Save uses internally) is semantically lossless (`robot diff`
+  confirms 0 real axioms lost) but **textually rewrites the entire file** —
+  every CURIE (`IO:0000001`, `IAO:0000115`) expanded to a full bracketed
+  IRI, annotations reordered alphabetically instead of our intentional
+  label→altLabel→definition→evidence→source order, declarations regrouped
+  to the top. That's exactly the diff-unfriendliness OWL Functional Syntax
+  was chosen over RDF/XML/Turtle to avoid — so this file is never machine
+  round-tripped, by any tool, ever.
+- **Finding the right superclass to subclass under** — browse
+  [`/io/docs/`](https://purl.openfaster.org/io/docs/) (this repo's own
+  WIDOCO output). Not a downgrade from Protégé's class-hierarchy tree: real
+  OBO curators standardly use a generated term browser for exactly this
+  (Ontobee, "the default browser for OBO" per OBO Academy's own docs) rather
+  than Protégé's tree view — a generated docs page *is* the normal way this
+  is done.
+- **Consistency checking** — `scripts/build.sh`'s `robot reason` (ELK by
+  default, same reasoner engine Protégé's Reasoner menu would use — ELK/
+  HermiT/Whelk all ship as standalone OWL-API-usable artifacts, not
+  GUI-exclusive plugins).
+- **Quality/pitfall checking** — `scripts/build.sh`'s `robot report` (the
+  CLI-native equivalent of a GUI pitfall-scanner like OOPS!).
 
 Copy this block, change the ID/labels/text, and append it before the closing
 `)`:
