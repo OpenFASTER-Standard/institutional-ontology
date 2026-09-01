@@ -72,10 +72,9 @@ this, not invented for this project.
 - **Cross-schema mapping:** moved to
   [`realizations`](https://github.com/OpenFASTER-Standard/realizations) —
   this repo stays concept-only, no relationship to any schema format. See
-  that repo's `legacy/` dir for the original SSSOM mapping and field
-  inventory (pending replacement by real `XSDO:`-shaped instance graphs),
-  and `docs/superpowers/specs/2026-09-01-xsd-ontology-design.md` in
-  `bulk-platform` for the full reasoning.
+  that repo's `modules/*.ttl` instance graphs (`XSDO:`-shaped, not flat
+  SSSOM rows) and `docs/superpowers/specs/2026-09-01-xsd-ontology-design.md`
+  in `bulk-platform` for the full reasoning.
 - **Concept-to-concept relationships** (e.g. "Steuer-IdNr is the German
   realization of the general TIN concept"): not yet built. Plain
   `broader`/`narrower` is explicitly ruled out as contentless. In real OWL
@@ -168,11 +167,10 @@ for real if a second curator joins). Then, in
 [`realizations`](https://github.com/OpenFASTER-Standard/realizations), add
 the corresponding `ofr:realizesConcept` link(s) in the relevant module's
 instance graph (one per distinct external XSD element the concept
-realizes) and mark the field(s) `assigned` in that repo's
-`legacy/field-inventory.json` until it's fully superseded by the instance
-graphs themselves. Run `scripts/build.sh` before committing — it only reads
-the source and writes to `build/`/the release copy, so it's always safe to
-run.
+realizes) — that link itself is the record of which fields are curated, no
+separate tracking file. Run `scripts/build.sh` before committing — it only
+reads the source and writes to `build/`/the release copy, so it's always
+safe to run.
 
 ## Building
 
@@ -186,5 +184,6 @@ export ROBOT_CMD="java -jar /path/to/robot.jar"   # or just `robot` if on PATH
 Every field-to-concept match is verified against the real XSD (`openfaster-spec`)
 and, where relevant, the official Kommunikationshandbücher — not inferred
 from field names or descriptions alone. At ~339 candidate fields, this spans
-far more than one sitting; `realizations`' `legacy/field-inventory.json` is
-the persistent checklist tracking that.
+far more than one sitting; progress is tracked by how much of each module's
+real structure exists in `realizations`' instance graphs, not a separate
+checklist file.
