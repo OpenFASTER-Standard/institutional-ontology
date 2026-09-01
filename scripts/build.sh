@@ -28,4 +28,9 @@ $ROBOT_CMD reason \
   --reasoner ELK \
   --output build/institutional-ontology-reasoned.owl
 
-echo "Build complete: build/institutional-ontology.owl"
+# The release artifact itself is committed at the repo root (not just left in the
+# gitignored build/ scratch dir) so that a git tag gives PURLs a stable
+# raw.githubusercontent.com URL to redirect to -- real ODK/OBO convention.
+cp build/institutional-ontology.owl ./institutional-ontology.owl
+
+echo "Build complete: build/institutional-ontology.owl (release copy: ./institutional-ontology.owl)"

@@ -106,9 +106,14 @@ this, not invented for this project.
   (`scripts/refresh-imports.sh` regenerates these via `robot extract`).
 - `mappings/*.sssom.tsv` — SSSOM mapping sets (schema field → concept).
 - `scripts/build.sh` — merges the editors' file + imports into
-  `build/institutional-ontology.owl` (gitignored — generated, not source),
-  runs `robot report` (fails on any ERROR) and `robot reason` (ELK,
-  consistency check). Source/release separation, per real ODK convention.
+  `build/institutional-ontology.owl` (gitignored scratch — the QC report and
+  reasoner output live here too), runs `robot report` (fails on any ERROR)
+  and `robot reason` (ELK, consistency check), then copies the result to
+  `./institutional-ontology.owl` at the repo root. That root copy **is**
+  committed — real ODK/OBO convention is to commit the actual release
+  product, not just the source, so a git tag gives PURLs (see
+  `purl.openfaster.org`, not yet live) a stable
+  `raw.githubusercontent.com` URL to redirect to.
 - `scripts/refresh-imports.sh` — regenerates the pinned BFO/IAO import
   modules when a newly-referenced term needs pulling in.
 - `data/field-inventory.json` — the working checklist this is built from:
