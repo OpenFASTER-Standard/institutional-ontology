@@ -110,8 +110,8 @@ this, not invented for this project.
   and `robot reason` (ELK, consistency check), then copies the result to
   `./institutional-ontology.owl` at the repo root. That root copy **is**
   committed — real ODK/OBO convention is to commit the actual release
-  product, not just the source, so a git tag gives PURLs (see
-  `purl.openfaster.org`, not yet live) a stable
+  product, not just the source, so a git tag gives
+  [`purl.openfaster.org`](https://purl.openfaster.org) a stable
   `raw.githubusercontent.com` URL to redirect to.
 - `scripts/refresh-imports.sh` — regenerates the pinned BFO/IAO import
   modules when a newly-referenced term needs pulling in.
@@ -119,7 +119,56 @@ this, not invented for this project.
   every real (non-linking-key) field across MiKaDiv's and KaFE's Excel
   templates, deduplicated within each schema, each tagged `pending` or
   `assigned` (+ which concept ID it resolved to). This is our own project
-  tracking, not part of the ontology's canonical format.
+  tracking, not part of the ontology's canonical format. Tracked at
+  Excel-template-column granularity (multiple columns can point at the same
+  real XSD element reused across sheets — e.g. KaFE's `NatP_Struct.Vorname`
+  backs three different template columns); `mappings/*.sssom.tsv` is
+  correctly deduplicated at the XSD-element level instead, since that's the
+  real external resource being mapped, not each of its template aliases.
+
+## Adding a concept
+
+**Hand-edit `institutional-ontology-edit.ofn` directly in a plain text
+editor. Never let a tool (Protégé's Save, `robot convert`, `robot merge` back
+onto the same file) rewrite it.** Verified empirically, not assumed: running
+the file through the OWL API's own functional-syntax writer (`robot convert
+--format ofn`, the same machinery Protégé uses internally) is semantically
+lossless (`robot diff` confirms 0 real axioms lost) but **textually rewrites
+the entire file** — every CURIE (`IO:0000001`, `IAO:0000115`) expanded to a
+full bracketed IRI, annotations reordered alphabetically by property instead
+of our intentional label→altLabel→definition→evidence→source order,
+declarations regrouped to the top. That's exactly the diff-unfriendliness
+OWL Functional Syntax was chosen over RDF/XML/Turtle to avoid — running any
+such tool over this file would turn every future one-line edit into a
+whole-file diff. Protégé is still fine for browsing/validating (load a copy,
+check the reasoner, explore the hierarchy) — just never save from it back
+over this file.
+
+Copy this block, change the ID/labels/text, and append it before the closing
+`)`:
+
+```
+# ============================================================= #
+# IO:00000NN -- <English label> / <German label>
+# ============================================================= #
+Declaration(Class(IO:00000NN))
+AnnotationAssertion(rdfs:label IO:00000NN "<English label>"@en)
+AnnotationAssertion(IAO:0000118 IO:00000NN "<German label>"@de)
+AnnotationAssertion(IAO:0000115 IO:00000NN "<short Aristotelian definition>"@en)
+AnnotationAssertion(IAO:0000116 IO:00000NN "<full researched justification -- XSD quotes, handbook citations, reasoning>"@en)
+AnnotationAssertion(IAO:0000119 IO:00000NN "<citation: which XSD element(s), which handbook section(s)>"@en)
+SubClassOf(IO:00000NN <closest-fitting imported BFO/IAO class>)
+```
+
+Next available ID: check the file for the highest `IO:` number in use, add
+one — no `idranges.owl` yet (solo curator, no real collision risk; add one
+for real if a second curator joins). Then add the corresponding row(s) to
+`mappings/mikadiv-kafe.sssom.tsv` (one row per distinct external XSD
+element, `skos:exactMatch` unless the research genuinely doesn't support an
+exact match — see the existing rows' `comment` field for the evidence-citing
+style), and mark the field(s) `assigned` in `data/field-inventory.json`.
+Run `scripts/build.sh` before committing — it only reads the source and
+writes to `build/`/the release copy, so it's always safe to run.
 
 ## Building
 
