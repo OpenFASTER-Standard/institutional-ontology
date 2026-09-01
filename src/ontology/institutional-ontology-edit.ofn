@@ -46,41 +46,41 @@ Declaration(Class(IO:0000003))
 AnnotationAssertion(rdfs:label IO:0000003 "Form of address"@en)
 AnnotationAssertion(IAO:0000118 IO:0000003 "Anredeform"@de)
 AnnotationAssertion(IAO:0000115 IO:0000003 "A formal salutation used to address an individual, indicating their preferred title or the absence of one."@en)
-AnnotationAssertion(IAO:0000116 IO:0000003 "KaFE XSD (kafe-standardtypes.xsd, NatP_Struct): Anrede, type Anrede_ENUM. Three permitted values, each modeled as its own subconcept (IO:0000004/0000005/0000006) rather than an opaque string enumeration, since each carries real meaning of its own. No MiKaDiv equivalent exists -- MiKaDiv's ThirdPartyDisclosureRequest.xsd has only a free-text Title field (a different concept: an honorific/qualification like \"Dr.\", not a form of address), so this concept is KaFE-only, unlike IO:0000001/IO:0000002."@en)
+AnnotationAssertion(IAO:0000116 IO:0000003 "KaFE XSD (kafe-standardtypes.xsd, NatP_Struct): Anrede, type Anrede_ENUM. Three permitted values, each modeled as a named individual of this class (IO:0000004/0000005/0000006), not a subclass -- corrected 2026-09-01 after research into real OBO/SKOS precedent for closed, non-hierarchical, never-extended enumerations (OBI's own categorical-value pattern; SKOS's skos:Concept is explicitly an individual, never a class, for exactly this scenario). \"Mr.\" is one value drawn from this category, not a kind of it. No MiKaDiv equivalent exists -- MiKaDiv's ThirdPartyDisclosureRequest.xsd has only a free-text Title field (a different concept: an honorific/qualification like \"Dr.\", not a form of address), so this concept is KaFE-only, unlike IO:0000001/IO:0000002."@en)
 AnnotationAssertion(IAO:0000119 IO:0000003 "KaFE: kafe-standardtypes.xsd, NatP_Struct.Anrede and Anrede_ENUM."@en)
 SubClassOf(IO:0000003 IAO:0000030)
 
 # ============================================================= #
 # IO:0000004 -- Ms. / Frau
 # ============================================================= #
-Declaration(Class(IO:0000004))
+Declaration(NamedIndividual(IO:0000004))
 AnnotationAssertion(rdfs:label IO:0000004 "Ms."@en)
 AnnotationAssertion(IAO:0000118 IO:0000004 "Frau"@de)
 AnnotationAssertion(IAO:0000115 IO:0000004 "The form of address for a woman."@en)
 AnnotationAssertion(IAO:0000116 IO:0000004 "KaFE XSD (kafe-standardtypes.xsd, Anrede_ENUM): enumeration value FRAU, EN \"Ms\" / DE \"Frau\"."@en)
 AnnotationAssertion(IAO:0000119 IO:0000004 "KaFE: kafe-standardtypes.xsd, Anrede_ENUM enumeration value FRAU."@en)
-SubClassOf(IO:0000004 IO:0000003)
+ClassAssertion(IO:0000003 IO:0000004)
 
 # ============================================================= #
 # IO:0000005 -- Mr. / Herr
 # ============================================================= #
-Declaration(Class(IO:0000005))
+Declaration(NamedIndividual(IO:0000005))
 AnnotationAssertion(rdfs:label IO:0000005 "Mr."@en)
 AnnotationAssertion(IAO:0000118 IO:0000005 "Herr"@de)
 AnnotationAssertion(IAO:0000115 IO:0000005 "The form of address for a man."@en)
 AnnotationAssertion(IAO:0000116 IO:0000005 "KaFE XSD (kafe-standardtypes.xsd, Anrede_ENUM): enumeration value HERR, EN \"Mr\" / DE \"Herr\"."@en)
 AnnotationAssertion(IAO:0000119 IO:0000005 "KaFE: kafe-standardtypes.xsd, Anrede_ENUM enumeration value HERR."@en)
-SubClassOf(IO:0000005 IO:0000003)
+ClassAssertion(IO:0000003 IO:0000005)
 
 # ============================================================= #
 # IO:0000006 -- No form of address / keine Anrede
 # ============================================================= #
-Declaration(Class(IO:0000006))
+Declaration(NamedIndividual(IO:0000006))
 AnnotationAssertion(rdfs:label IO:0000006 "No form of address"@en)
 AnnotationAssertion(IAO:0000118 IO:0000006 "keine Anrede"@de)
 AnnotationAssertion(IAO:0000115 IO:0000006 "The absence of a form of address, for an individual for whom none applies or is indicated."@en)
 AnnotationAssertion(IAO:0000116 IO:0000006 "KaFE XSD (kafe-standardtypes.xsd, Anrede_ENUM): enumeration value KEINE_ANREDE, EN \"No form of address/no indication\" / DE \"keine Anrede\"."@en)
 AnnotationAssertion(IAO:0000119 IO:0000006 "KaFE: kafe-standardtypes.xsd, Anrede_ENUM enumeration value KEINE_ANREDE."@en)
-SubClassOf(IO:0000006 IO:0000003)
+ClassAssertion(IO:0000003 IO:0000006)
 
 )
