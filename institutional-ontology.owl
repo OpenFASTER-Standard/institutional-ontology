@@ -1359,6 +1359,19 @@ Previous. An information content entity is a non-realizable information entity t
     
 
 
+    <!-- https://purl.openfaster.org/io/IO_0000007 -->
+
+    <owl:Class rdf:about="https://purl.openfaster.org/io/IO_0000007">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <obo:IAO_0000115 xml:lang="en">The capacity in which a natural or legal person participates in a given request or filing, as one of a closed, enumerated set of real-world roles.</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">KaFE XSD (kafe.xsd/kafe-standardtypes.xsd): not a real XSD field -- KaFE structurally distinguishes role via which wrapper element a NatP_Struct-shaped person appears under (SteuerpflichtigePerson, GesetzlicheVertretung, BevollmaechtigtePerson), never via an explicit enumerated field. This concept and its three individuals (IO:0000008/0000009/0000010) exist so the A-box can tag which of those three real structural roles a given ingested person-row plays, disambiguating &quot;whose given name&quot; once a submission can contain many people across many Erstattungsantrag entries -- see bulk-platform&apos;s docs/superpowers/specs/2026-09-02-nested-repeating-entity-abox-design.md. Same closed/non-hierarchical/never-extended shape as IO:0000003 (Anrede), same individuals-not-subclasses modeling choice. No MiKaDiv equivalent identified yet -- KaFE-only until a second real framework confirms or refines this concept&apos;s scope, same caveat IO:0000003 already carries.</obo:IAO_0000116>
+        <obo:IAO_0000118 xml:lang="de">Personenrolle</obo:IAO_0000118>
+        <obo:IAO_0000119 xml:lang="en">KaFE: kafe.xsd AllgAngaben_CType.SteuerpflichtigePerson/GesetzlicheVertretung, KAFE_CType.BevollmaechtigtePerson -- structural role distinction, not a real XSD enumerated field.</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">Person role</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -1647,6 +1660,45 @@ Previous. An information content entity is a non-realizable information entity t
         <obo:IAO_0000118 xml:lang="de">keine Anrede</obo:IAO_0000118>
         <obo:IAO_0000119 xml:lang="en">KaFE: kafe-standardtypes.xsd, Anrede_ENUM enumeration value KEINE_ANREDE.</obo:IAO_0000119>
         <rdfs:label xml:lang="en">No form of address</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.openfaster.org/io/IO_0000008 -->
+
+    <owl:NamedIndividual rdf:about="https://purl.openfaster.org/io/IO_0000008">
+        <rdf:type rdf:resource="https://purl.openfaster.org/io/IO_0000007"/>
+        <obo:IAO_0000115 xml:lang="en">The natural or legal person whose tax liability is the subject of a request or filing.</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">KaFE XSD (kafe.xsd, AllgAngaben_CType): SteuerpflichtigePerson, type StpflPerson_Struct -- required, once per Erstattungsantrag.</obo:IAO_0000116>
+        <obo:IAO_0000118 xml:lang="de">Steuerpflichtige Person</obo:IAO_0000118>
+        <obo:IAO_0000119 xml:lang="en">KaFE: kafe.xsd, AllgAngaben_CType.SteuerpflichtigePerson.</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">Taxpayer</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.openfaster.org/io/IO_0000009 -->
+
+    <owl:NamedIndividual rdf:about="https://purl.openfaster.org/io/IO_0000009">
+        <rdf:type rdf:resource="https://purl.openfaster.org/io/IO_0000007"/>
+        <obo:IAO_0000115 xml:lang="en">The natural or legal person who legally represents another party in a request or filing.</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">KaFE XSD (kafe.xsd, AllgAngaben_CType): GesetzlicheVertretung, type GesetzlicheVertretung_Struct -- optional, at most once per Erstattungsantrag.</obo:IAO_0000116>
+        <obo:IAO_0000118 xml:lang="de">Gesetzliche Vertretung</obo:IAO_0000118>
+        <obo:IAO_0000119 xml:lang="en">KaFE: kafe.xsd, AllgAngaben_CType.GesetzlicheVertretung.</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">Legal representative</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.openfaster.org/io/IO_0000010 -->
+
+    <owl:NamedIndividual rdf:about="https://purl.openfaster.org/io/IO_0000010">
+        <rdf:type rdf:resource="https://purl.openfaster.org/io/IO_0000007"/>
+        <obo:IAO_0000115 xml:lang="en">The natural or legal person authorised, typically via a granted power of attorney, to act on behalf of another party in a request or filing.</obo:IAO_0000115>
+        <obo:IAO_0000116 xml:lang="en">KaFE XSD (kafe.xsd, KAFE_CType): BevollmaechtigtePerson, type BevollmaechtigtePerson_CType -- optional, at most once per whole submission, not per Erstattungsantrag (structurally a sibling of Antraege at the document root, confirmed directly against kafe.xsd lines 553-563).</obo:IAO_0000116>
+        <obo:IAO_0000118 xml:lang="de">Bevollmächtigte Person</obo:IAO_0000118>
+        <obo:IAO_0000119 xml:lang="en">KaFE: kafe.xsd, KAFE_CType.BevollmaechtigtePerson.</obo:IAO_0000119>
+        <rdfs:label xml:lang="en">Authorised representative</rdfs:label>
     </owl:NamedIndividual>
     
 
